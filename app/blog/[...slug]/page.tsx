@@ -7,7 +7,7 @@ const ArticalPage = async ({ params }: { params: Promise<{ slug: string[] }> }) 
     const title = slug[1] ? decodeURIComponent(slug[1]) : "No Title";
 
     return (
-        <div>
+        <div className="flex flex-col relative  gap-2">
             <h2>
                 Author: {author}
             </h2>
