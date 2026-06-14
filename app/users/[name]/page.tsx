@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 
 
 const Page = async ({params}: { params: { name: string } }) => {
@@ -5,6 +6,9 @@ const Page = async ({params}: { params: { name: string } }) => {
     const name = parameters.name
 
     console.log(parameters);
+    if(name == "ali"){
+        notFound()
+    }
     return (
         <div>
             Welcome  {name}
