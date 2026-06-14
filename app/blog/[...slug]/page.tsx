@@ -1,3 +1,9 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Blog",
+  description:"Blog- Description"
+};
 const ArticalPage = async ({ params }: { params: Promise<{ slug: string[] }> }) => {
     const parameters = await params;
     const slug = parameters.slug;
