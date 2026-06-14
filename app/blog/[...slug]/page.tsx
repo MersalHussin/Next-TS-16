@@ -1,20 +1,19 @@
-const ArticalPage = async ({params}: {params: {slug:string[]}}) => {
-    const parameters = await params
-    const slug = parameters.slug
-    console.log(parameters);
-    console.log(slug.join("/"));
+const ArticalPage = async ({ params }: { params: Promise<{ slug: string[] }> }) => {
+    const parameters = await params;
+    const slug = parameters.slug;
+
+    // تأمين الكود في حال لم يكن هناك عنصر ثاني في الـ slug لحمايته من الـ Crash
+    const author = slug[0] ? decodeURIComponent(slug[0]) : "Unknown";
+    const title = slug[1] ? decodeURIComponent(slug[1]) : "No Title";
+
     return (
         <div>
-            {/* {slug.length == 2 ? slug[1] : slug.join(',')} */}
-
-
-<h2>
-Author : {slug[0]}
-</h2>
-<h1>
-Title : {slug[1].split('%20')}
-</h1>
-
+            <h2>
+                Author: {author}
+            </h2>
+            <h1>
+                Title: {title}
+            </h1>
         </div>
     );
 }
