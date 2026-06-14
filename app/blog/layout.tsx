@@ -11,10 +11,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`h-full antialiased`}
-    >
+  
       <body className="min-h-full flex flex-col">
         <div className="flex flex-row">
           <aside className="flex flex-col w-40 gap-2">
@@ -27,6 +24,5 @@ export default function RootLayout({
           {children}
         </div>
         </body>
-    </html>
   );
 }
