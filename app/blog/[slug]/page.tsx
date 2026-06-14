@@ -1,20 +1,23 @@
+'use client'
 
-export const generateMetadata = async({ params }: { params: {slug: string[] } })=>  {
-        const parameters = await params;
-    const slug = parameters.slug;
-    console.log(slug);
-    return{
-        title: `${slug}`,
-        description:`${slug}-Descrpestion`
-    }
-};
+import { useParams, useSearchParams } from "next/navigation";
+import { useState } from "react";
+const ArticalPage =  () => {
 
-const ArticalPage = async ({ params, searchParams}: { params: {slug: string[] }, searchParams: {filter?: string, lang?: string}}) => {
-    const parameters = await params;
-    const {filter , lang} = await searchParams
-    const slug = parameters.slug;
+    const parmameters = useParams()
+    const slug = parmameters.slug
+    const [counter,setCoutner] = useState(0)
+    const searchParameters = useSearchParams()
+    const filter = searchParameters.get('filter')
+    const lang = searchParameters.get('lang')
     return (
+        
         <div className="flex flex-col relative  gap-2">
+
+      Counter : {counter}
+            <button onClick={()=>{setCoutner(prev => prev + 1)}}>Increment</button>           
+            <button onClick={()=>{setCoutner(prev => prev - 1)}}>Decrement</button>  
+
             <h2>
                 lanugaue: {lang}
                 {/* en */}
