@@ -30,13 +30,17 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <Navbar/>
-        {children}
-        <footer>
-          <p className="text-center text-sm text-gray-500 py-4 bg-amber-50">
-            &copy; {new Date().getFullYear()} My Next.js App. All rights reserved.
-          </p>
+        <main className="flex-1">
+          {children}
+        </main>
+        <footer className="bg-gray-100 mt-auto">
+          <div className="container py-4">
+            <p className="text-center text-sm text-gray-600">
+              &copy; {new Date().getFullYear()} My Next.js App. All rights reserved.
+            </p>
+          </div>
         </footer>
-        </body>
+      </body>
     </html>
   );
 }
