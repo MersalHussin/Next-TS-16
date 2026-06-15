@@ -6,5 +6,12 @@ export const GET = async () =>{
         {id:2 , name:'mouse'},
         {id:3 , name:'keybord'},
 ]
-return NextResponse.json(products)
+
+
+try{
+    return NextResponse.json(products)
+}catch (error){
+        console.error(error);
+        return NextResponse.json({message:'Internal Server Error'}, {status:500})
+}
 }
