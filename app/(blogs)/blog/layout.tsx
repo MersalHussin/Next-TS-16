@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -16,10 +17,10 @@ export default function BlogLayout({
             <aside className="w-full md:w-56 bg-gray-50 rounded-lg p-4">
                 <h3 className="font-bold text-gray-900 mb-4">Blog Categories</h3>
                 <ul className="space-y-2">
-                    <li><a href="/blog?filter=java" className="nav-link block text-sm">Java</a></li>
-                    <li><a href="/blog?filter=react" className="nav-link block text-sm">React</a></li>
-                    <li><a href="/blog?filter=js" className="nav-link block text-sm">JavaScript</a></li>
-                    <li><a href="/blog?filter=nextjs" className="nav-link block text-sm">Next.js</a></li>
+                    <li><Link href="/blog?filter=java" className="nav-link block text-sm">Java</Link></li>
+                    <li><Link href="/blog?filter=react" className="nav-link block text-sm">React</Link></li>
+                    <li><Link href="/blog?filter=js" className="nav-link block text-sm">JavaScript</Link></li>
+                    <li><Link href="/blog?filter=nextjs" className="nav-link block text-sm">Next.js</Link></li>
                 </ul>
             </aside>
             <main className="flex-1">
