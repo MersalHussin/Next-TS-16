@@ -1,17 +1,14 @@
 import { NextResponse } from "next/server"
 
-export const GET = async () =>{
-    const products = [
-        {id:1 , name:'laptop'},
-        {id:2 , name:'mouse'},
-        {id:3 , name:'keybord'},
-]
-
-
-try{
-    return NextResponse.json(products)
-}catch (error){
-        console.error(error);
-        return NextResponse.json({message:'Internal Server Error'}, {status:500})
-}
-}
+export const GET = async () => {
+    try {
+        const response = await fetch('https://dummyjson.com/products');
+        const data = await response.json();
+        return NextResponse.json(data.products || data);
+    } catch (error) {
+        return NextResponse.json(
+            { message: error instanceof Error ? error.message : 'An error occurred' }, 
+            { status: 500 }
+        );
+    }
+};
