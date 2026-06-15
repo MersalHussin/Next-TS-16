@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { subscribeToNewsletter } from "../actions/action";
+import { subscribeToNewsletter } from "./action";
 
 export default function Newsletter() {
   const [status, setStatus] = useState<{ success?: boolean; error?: string | null }>({});

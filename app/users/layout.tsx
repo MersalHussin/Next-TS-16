@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Users",
@@ -13,19 +14,19 @@ const UsersLayout = ({ children }: { children: React.ReactNode }) => {
                     <h3 className="font-bold text-gray-900 mb-4">Users Navigation</h3>
                     <ul className="space-y-2">
                         <li>
-                            <a href="/users" className="nav-link block text-sm">
+                            <Link href="/users" className="nav-link block text-sm">
                                 All Users
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a href="/users/mostafa" className="nav-link block text-sm">
+                            <Link href="/users/mostafa" className="nav-link block text-sm">
                                 Mostafa
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a href="/users/ali" className="nav-link block text-sm">
+                            <Link href="/users/ali" className="nav-link block text-sm">
                                 Ali
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                 </aside>

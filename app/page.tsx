@@ -1,23 +1,23 @@
+import Counter from "@/components/Counter";
+import { Metadata } from "next";
+
 export const metadata: Metadata = {
   title: "Home",
   description: "Welcome to Next.js Learn App",
 };
-
-import Counter from "@/components/Counter";
-import { Metadata } from "next";
 
 export default async function Home() {
   await new Promise((resolve) => setTimeout(() => {
     resolve(console.log("done"));
   }, 500));
 
-    const randomError = Math.random() < 0.5
+    // const randomError = Math.random() < 0.5
 
-    console.log(randomError);
-     if(randomError){
+    // console.log(randomError);
+    //  if(randomError){
        
-       throw new error("this is a test error")
-     }
+    //    throw new error("this is a test error")
+    //  }
 
 
   return (
