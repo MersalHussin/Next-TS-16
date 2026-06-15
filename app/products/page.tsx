@@ -1,19 +1,19 @@
-   const getProducts = async () => {
-   const response = await fetch('http://localhost:3000/api/products')
-    return response.json()
-   }
+'use client'
+import { useEffect, useState } from "react";
 
 
-   console.log(getProducts());
-
-const productsPage = async () => {
-    const products = await getProducts()
-
+const ProductsPage = () => {
+       const[products,setProducts] = useState([])
+       useEffect(() => {
+           fetch('/api/products')
+           .then(res => res.json())
+           .then(body => setProducts(body))
+       },[])
 
     console.log(products);
     return (
         <div>
-          {products.map((product:{id:number,name:string}) =>{
+        {products.map((product:{id:number,name:string}) =>{
             return(
                 <div key={product.id}>
                 <h1>{product.name}</h1>
@@ -24,4 +24,4 @@ const productsPage = async () => {
     );
 }
 
-export default productsPage;
+export default ProductsPage;
