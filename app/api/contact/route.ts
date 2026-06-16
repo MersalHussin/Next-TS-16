@@ -1,6 +1,5 @@
 import { readData, writeData } from "@/lib/db";
-
-export const POST = async (request: Request) => {
+export const POST = async(request: Request) => {
     try {
         const { name, message } = await request.json();
 
@@ -12,11 +11,11 @@ export const POST = async (request: Request) => {
         const db = await readData();
         const newMessage = {
             id: Date.now().toString(),
-            name,
-            message,
+            name:name,
+            message:message,
         };
 
-        db.push(newMessage);
+        db.messages.push(newMessage);
         await writeData(db);
 
         return Response.json({ message: "Message received successfully" }, { status: 201 });
