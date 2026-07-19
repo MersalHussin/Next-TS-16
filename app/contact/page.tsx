@@ -20,10 +20,10 @@ const ContactPage = async() => {
         <div className="container py-12">
             <ContactForm/>
             {messages.map((message:{id: number, name: string, message: string}) => (
-                <div key={message.id} className="card max-w-3xl mx-auto mt-8">
+                <a href={`/messages/${message.id}`} key={message.id} className="card block max-w-3xl mx-auto mt-8">
                     <h2 className="text-xl font-bold mb-2">{message.name}</h2>
                     <p className="text-gray-800 mt-4">{message.message}</p>
-                </div>
+                </a>
             ))}
         </div>
     );

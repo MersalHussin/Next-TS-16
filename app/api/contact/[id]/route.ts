@@ -11,7 +11,7 @@ export async function PUT(req:Request , {params}:{params:{id:number}}){
             return Response.json({message:'Name and message is required'},{status:400})
         }
         const db =  await readData()
-        const index = db.messages.findIndex((msg:{id:number}) => msg.id == Number(id))
+        const index = db.messages.findIndex((msg:{id:number}) => Number(msg.id) === Number(id))
         if(index == -1){
             return Response.json({message:'Message not found'}, {status:404})
         }
