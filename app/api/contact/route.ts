@@ -1,7 +1,21 @@
 import { readData, writeData } from "@/lib/db";
+
+export const GET = async () => {
+    const data = await readData();
+    try{
+        return Response.json(data);
+    }catch(err){
+        return Response.json({error: "err"}, { status: 500 });
+    }
+}
+
+
 export const POST = async(request: Request) => {
+    console.log("REQUEST",request);
     try {
         const { name, message } = await request.json();
+        console.log(name);
+        console.log(message);
 
         // Validation
         if (!name || !message) {

@@ -7,11 +7,11 @@ export const readData = async () => {
         const data = await fs.readFile(dbPath, "utf-8")
         const db = JSON.parse(data);
         if (!db.messages) {
-            db.messages = [];
+            return db.messages = [];
         }
         return db;
     } catch (err) {
-        return { messages: [] };
+        return { messages: [] , message:err};
     }
 }
 

@@ -13,7 +13,7 @@ const ContactForm = () => {
         e.preventDefault()
         setStatus("Loading")
         try {
-            const res = await fetch('/api/contact', {
+            const res = await fetch('http://localhost:3001/api/contact', {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json",
@@ -26,24 +26,26 @@ const ContactForm = () => {
                 throw new Error(data.error || 'Something went wrong')
             }
 
-            setStatus('')
+            setStatus('Data Send')
             setMessage('')
             setName('')
             router.refresh()
-        } catch (err) {
+        } catch  {
             setStatus("Network Problem")
         }
     }
 
     return (
-        <form onSubmit={handleForm}>
+        <form onSubmit={handleForm} action={'./'}>
                 <input type="text"
                     name="name"
                     value={name}
+                    placeholder="name"
                     onChange ={(e)=>setName(e.target.value)}
-                />
+                    />
                 <input type="text"
                     name="message"
+                    placeholder="message"
                     value={message}
                     onChange ={(e)=>setMessage(e.target.value)}
                 />
